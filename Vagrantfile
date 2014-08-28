@@ -21,6 +21,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "shell", inline: <<-shell
+    locale-gen zh_TW.UTF-8
+    update-locale LANG=zh_TW.UTF-8
     apt-get update
     apt-get install python-software-properties  -y --force-yes
     add-apt-repository ppa:mapnik/boost
